@@ -1,0 +1,149 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Template to provision SageMaker Notebook for generative AI model optimization using Amazon SageMaker.",
+  "Parameters": {
+    "SageMakerNotebookName": {
+      "Default": "aws-genai-model-optimize",
+      "Type": "String",
+      "Description": "Enter name of SageMaker Notebook instance. The notebook name must _not_ already exist in your AWS account/region.",
+      "MinLength": 1,
+      "MaxLength": 63,
+      "AllowedPattern": "^[a-z0-9](-*[a-z0-9])*",
+      "ConstraintDescription": "Must be lowercase or numbers with a length of 1-63 characters."
+    },
+    "SageMakerIAMRole": {
+      "Description": "Name of IAM role that will be created by this CloudFormation template. The role name must _not_ already exist in your AWS account.",
+      "Type": "String",
+      "Default": "AWSGenAIModelOptimize"
+    }
+  },
+  "Resources": {
+    "CodeRepository": {
+      "Type": "AWS::SageMaker::CodeRepository",
+      "Properties": {
+        "GitConfig": {
+          "RepositoryUrl": "https://github.com/aws-solutions-library-samples/guidance-for-generative-ai-model-optimization-using-amazon-sagemaker"
+        }
+      }
+    },
+    "NotebookInstance": {
+      "Type": "AWS::SageMaker::NotebookInstance",
+      "Properties": {
+        "NotebookInstanceName": {
+          "Ref": "SageMakerNotebookName"
+        },
+        "InstanceType": "ml.t3.2xlarge",
+        "RoleArn": {
+          "Fn::GetAtt": [
+            "Role",
+            "Arn"
+          ]
+        },
+        "DefaultCodeRepository": "https://github.com/aws-solutions-library-samples/guidance-for-generative-ai-model-optimization-using-amazon-sagemaker"
+      }
+    },
+    "Role": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "RoleName": {
+          "Ref": "SageMakerIAMRole"
+        },
+        "Policies": [
+          {
+            "PolicyName": "CustomNotebookAccess",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Sid": "ReadFromOpenSearch",
+                  "Effect": "Allow",
+                  "Action": [
+                    "es:ESHttp*"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::Sub": "arn:aws:es:${AWS::Region}:${AWS::AccountId}:domain/*"
+                    }
+                  ]
+                },
+                {
+                  "Sid": "ReadSecretFromSecretsManager",
+                  "Effect": "Allow",
+                  "Action": [
+                    "secretsmanager:GetSecretValue"
+                  ],
+                  "Resource": {
+                    "Fn::Sub": "arn:aws:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:*"
+                  }
+                },
+                {
+                  "Sid": "ReadWriteFromECR",
+                  "Effect": "Allow",
+                  "Action": [
+                    "ecr:BatchGetImage",
+                    "ecr:BatchCheckLayerAvailability",
+                    "ecr:CompleteLayerUpload",
+                    "ecr:DescribeImages",
+                    "ecr:DescribeRepositories",
+                    "ecr:GetDownloadUrlForLayer",
+                    "ecr:InitiateLayerUpload",
+                    "ecr:ListImages",
+                    "ecr:PutImage",
+                    "ecr:UploadLayerPart",
+                    "ecr:CreateRepository",
+                    "ecr:GetAuthorizationToken",
+                    "ec2:DescribeAvailabilityZones"
+                  ],
+                  "Resource": "*"
+                }
+              ]
+            }
+          }
+        ],
+        "ManagedPolicyArns": [
+          "arn:aws:iam::aws:policy/AmazonSageMakerFullAccess",
+          "arn:aws:iam::aws:policy/AWSCloudFormationReadOnlyAccess",
+          "arn:aws:iam::aws:policy/TranslateReadOnly"
+        ],
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "sagemaker.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "SageMakerNotebookURL": {
+      "Description": "SageMaker Notebook Instance",
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            {
+              "Fn::Sub": "https://console.aws.amazon.com/sagemaker/home?region=${AWS::Region}#/notebook-instances/openNotebook/"
+            },
+            {
+              "Fn::GetAtt": [
+                "NotebookInstance",
+                "NotebookInstanceName"
+              ]
+            },
+            "?view=classic"
+          ]
+        ]
+      }
+    }
+  }
+}
