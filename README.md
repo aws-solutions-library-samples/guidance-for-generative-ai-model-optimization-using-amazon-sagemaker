@@ -49,8 +49,6 @@ By providing a comprehensive set of optimization techniques and a step-by-step a
 
 
 ## Deployment Steps 
-1. 1. Clone the repo using command ```git clone ``` 
-
 1. Download this repository
 2. Navigate to the deployment folder
 3. In the AWS Console, navigate to Cloudformation and upload the template in the deployment folder.
@@ -58,8 +56,8 @@ By providing a comprehensive set of optimization techniques and a step-by-step a
 5. Select the newly create notebook and select **Open Jupyter**
 6. Navigate to the 4 notebooks. Each notebook walks you through the steps to optimize the model and then deploy it.
 7. If you would like to test this newly optimized endpoint with an application as shown in the second architecture diagram above, then use the 
-   ![Generative AI Application Builder SageMaker Chat](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?templateURL=https://solutions-reference.s3.amazonaws.com/generative-ai-application-builder-on-aws/latest/SageMakerChat.template)
-8. If multiple application are needed to perform queries against each endpoint, then use the solution. ![Generative AI Application Builder on AWS](https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/)
+   [Generative AI Application Builder SageMaker Chat](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?templateURL=https://solutions-reference.s3.amazonaws.com/generative-ai-application-builder-on-aws/latest/SageMakerChat.template)
+8. If multiple application are needed to perform queries against each endpoint, then use the solution. [Generative AI Application Builder on AWS](https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/)
 
 
 ## Deployment Validation
@@ -72,7 +70,7 @@ By providing a comprehensive set of optimization techniques and a step-by-step a
 ## Running the Guidance
 
 1. Each of the 4 notebooks provided  comes with its own code to test a successful deployment of the optimized model at the endpoint. So run the cells in Jupyter one by one and deploy the model at the endpoint.
-2. If the Generative AI Application Builder on AWS is deployed to have an application that communicates to this newly optimized endpoint, then follow the steps provided in this ![solution](https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/)
+2. If the Generative AI Application Builder on AWS is deployed to have an application that communicates to this newly optimized endpoint, then follow the steps provided in this [solution](https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/)
 
 
 
@@ -80,8 +78,8 @@ By providing a comprehensive set of optimization techniques and a step-by-step a
 
 You can run each optimization technique and observe the results. Use these two blogs to get an advanced understanding of these optimization techniques.
 
-![Blog1](https://aws.amazon.com/blogs/machine-learning/achieve-up-to-2x-higher-throughput-while-reducing-costs-by-50-for-generative-ai-inference-on-amazon-sagemaker-with-the-new-inference-optimization-toolkit-part-1/)
-![Blog2](https://aws.amazon.com/blogs/machine-learning/achieve-up-to-2x-higher-throughput-while-reducing-costs-by-up-to-50-for-generative-ai-inference-on-amazon-sagemaker-with-the-new-inference-optimization-toolkit-part-2/)
+[Blog1](https://aws.amazon.com/blogs/machine-learning/achieve-up-to-2x-higher-throughput-while-reducing-costs-by-50-for-generative-ai-inference-on-amazon-sagemaker-with-the-new-inference-optimization-toolkit-part-1/)
+[Blog2](https://aws.amazon.com/blogs/machine-learning/achieve-up-to-2x-higher-throughput-while-reducing-costs-by-up-to-50-for-generative-ai-inference-on-amazon-sagemaker-with-the-new-inference-optimization-toolkit-part-2/)
 
 
 ## Cleanup
