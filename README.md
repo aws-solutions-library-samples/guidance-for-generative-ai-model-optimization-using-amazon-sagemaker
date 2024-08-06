@@ -1,19 +1,19 @@
 # Guidance for Generative AI Model Optimization using Amazon SageMaker
 
-## Table of Content (required)
+## Table of Content 
 
-1. [Overview](#overview-required)
+1. [Overview](#overview)
     - [Cost](#cost)
-2. [Prerequisites](#prerequisites-required)
-    - [Operating System](#operating-system-required)
-3. [Deployment Steps](#deployment-steps-required)
-4. [Deployment Validation](#deployment-validation-required)
-5. [Running the Guidance](#running-the-guidance-required)
-6. [Next Steps](#next-steps-required)
-7. [Cleanup](#cleanup-required)
+2. [Prerequisites](#prerequisites)
+    - [Operating System](#operating-system)
+3. [Deployment Steps](#deployment-steps)
+4. [Deployment Validation](#deployment-validation)
+5. [Running the Guidance](#running-the-guidance)
+6. [Next Steps](#next-steps)
+7. [Cleanup](#cleanup)
 
 
-## Overview (required)
+## Overview
 
 The guidance on "Generative AI Model Optimization using Amazon SageMaker" addresses the growing need to optimize the performance and cost-effectiveness of large language models (LLMs) deployed on cloud platforms.
 
@@ -34,23 +34,22 @@ By providing a comprehensive set of optimization techniques and a step-by-step a
 ![Architecture](./assets/arch-1.png)
 ![Architecture](./assets/arch-2.png)
 
-### Cost ( required )
+### Cost
 
 
 
-### Sample Cost Table ( required )
+### Sample Cost Table
 
 
 
-## Prerequisites (required)
+## Prerequisites
 
 * Make sure that the `ml.p4d.24xlarge` and `ml.inf2.48xlarge` instance types required for this tutorial are available in your AWS Region.
 * Make sure that the value of your "ml.p4d.24xlarge for endpoint usage" and "ml.inf2.48xlarge for endpoint usage" Amazon SageMaker service quotas allow you to deploy at least one Amazon SageMaker endpoint using these instance types.
 
 
-## Deployment Steps (required)
+## Deployment Steps 
 1. 1. Clone the repo using command ```git clone ``` 
-**Example:**
 
 1. Download this repository
 2. Navigate to the deployment folder
@@ -63,21 +62,21 @@ By providing a comprehensive set of optimization techniques and a step-by-step a
 8. If multiple application are needed to perform queries against each endpoint, then use the solution. ![Generative AI Application Builder on AWS](https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/)
 
 
-## Deployment Validation  (required)
+## Deployment Validation
 
 * Open CloudFormation console and verify the status to be **CREATE_COMPLETE**
 * If deployment is successful, you should see the notebook in the SageMaker console.
 * If deploying the SageMaker Chat template from generative ai application builder on AWS solution, check for the status of the deploymnet to be **CREATE_COMPLETE** then navigate to the outputs tab in cloudformation and select the UI url and login with the credentials provided through Cognito sent to your email.
 
 
-## Running the Guidance (required)
+## Running the Guidance
 
 1. Each of the 4 notebooks provided  comes with its own code to test a successful deployment of the optimized model at the endpoint. So run the cells in Jupyter one by one and deploy the model at the endpoint.
 2. If the Generative AI Application Builder on AWS is deployed to have an application that communicates to this newly optimized endpoint, then follow the steps provided in this ![solution](https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/)
 
 
 
-## Next Steps (required)
+## Next Steps
 
 You can run each optimization technique and observe the results. Use these two blogs to get an advanced understanding of these optimization techniques.
 
@@ -85,11 +84,11 @@ You can run each optimization technique and observe the results. Use these two b
 ![Blog2](https://aws.amazon.com/blogs/machine-learning/achieve-up-to-2x-higher-throughput-while-reducing-costs-by-up-to-50-for-generative-ai-inference-on-amazon-sagemaker-with-the-new-inference-optimization-toolkit-part-2/)
 
 
-## Cleanup (required)
+## Cleanup
 
  Once tested you can delete the endpoints.
 
-## Notices (optional)
+## Notices
 
 *Customers are responsible for making their own independent assessment of the information in this Guidance. This Guidance: (a) is for informational purposes only, (b) represents AWS current product offerings and practices, which are subject to change without notice, and (c) does not create any commitments or assurances from AWS and its affiliates, suppliers or licensors. AWS products or services are provided “as is” without warranties, representations, or conditions of any kind, whether express or implied. AWS responsibilities and liabilities to its customers are controlled by AWS agreements, and this Guidance is not part of, nor does it modify, any agreement between AWS and its customers.*
 
