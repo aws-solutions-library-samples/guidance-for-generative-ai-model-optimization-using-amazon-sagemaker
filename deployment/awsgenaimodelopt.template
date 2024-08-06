@@ -1,9 +1,9 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Template to provision SageMaker Notebook for generative AI model optimization using Amazon SageMaker.",
+  "Description": "Template to provision SageMaker Notebook and upload the code repository.",
   "Parameters": {
     "SageMakerNotebookName": {
-      "Default": "aws-genai-model-optimize",
+      "Default": "aws-llm-apps-blog",
       "Type": "String",
       "Description": "Enter name of SageMaker Notebook instance. The notebook name must _not_ already exist in your AWS account/region.",
       "MinLength": 1,
@@ -14,7 +14,7 @@
     "SageMakerIAMRole": {
       "Description": "Name of IAM role that will be created by this CloudFormation template. The role name must _not_ already exist in your AWS account.",
       "Type": "String",
-      "Default": "AWSGenAIModelOptimize"
+      "Default": "LLMAppsBlogIAMRole"
     }
   },
   "Resources": {
@@ -22,7 +22,7 @@
       "Type": "AWS::SageMaker::CodeRepository",
       "Properties": {
         "GitConfig": {
-          "RepositoryUrl": "https://github.com/aws-solutions-library-samples/guidance-for-generative-ai-model-optimization-using-amazon-sagemaker"
+          "RepositoryUrl": "https://github.com/aws-samples/sagemaker-genai-hosting-examples"
         }
       }
     },
@@ -39,7 +39,7 @@
             "Arn"
           ]
         },
-        "DefaultCodeRepository": "https://github.com/aws-solutions-library-samples/guidance-for-generative-ai-model-optimization-using-amazon-sagemaker"
+        "DefaultCodeRepository": "https://github.com/aws-samples/sagemaker-genai-hosting-examples"
       }
     },
     "Role": {
@@ -54,28 +54,6 @@
             "PolicyDocument": {
               "Version": "2012-10-17",
               "Statement": [
-                {
-                  "Sid": "ReadFromOpenSearch",
-                  "Effect": "Allow",
-                  "Action": [
-                    "es:ESHttp*"
-                  ],
-                  "Resource": [
-                    {
-                      "Fn::Sub": "arn:aws:es:${AWS::Region}:${AWS::AccountId}:domain/*"
-                    }
-                  ]
-                },
-                {
-                  "Sid": "ReadSecretFromSecretsManager",
-                  "Effect": "Allow",
-                  "Action": [
-                    "secretsmanager:GetSecretValue"
-                  ],
-                  "Resource": {
-                    "Fn::Sub": "arn:aws:secretsmanager:${AWS::Region}:${AWS::AccountId}:secret:*"
-                  }
-                },
                 {
                   "Sid": "ReadWriteFromECR",
                   "Effect": "Allow",
@@ -94,7 +72,11 @@
                     "ecr:GetAuthorizationToken",
                     "ec2:DescribeAvailabilityZones"
                   ],
-                  "Resource": "*"
+                  "Resource": [
+                    {
+                      "Fn::Sub": "arn:aws:ecr:${AWS::Region}:${AWS::AccountId}:repository/*"
+                    }
+                  ]
                 }
               ]
             }
