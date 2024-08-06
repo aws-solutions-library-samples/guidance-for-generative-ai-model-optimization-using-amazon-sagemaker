@@ -31,8 +31,8 @@ The main problem this guidance solves is the challenge of optimizing the perform
 
 By providing a comprehensive set of optimization techniques and a step-by-step approach, the guidance empowers developers and data scientists to effectively optimize their LLMs on Amazon SageMaker, leading to faster, more accurate, and cost-efficient AI-powered applications.
 
-2. Include the architecture diagram image, as well as the steps explaining the high-level overview and flow of the architecture. 
-    - To add a screenshot, create an ‘assets/images’ folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README. 
+![Architecture](./assets/arch-1.png)
+![Architecture](./assets/arch-2.png)
 
 ### Cost ( required )
 
