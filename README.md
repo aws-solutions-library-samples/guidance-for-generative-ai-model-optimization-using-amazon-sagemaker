@@ -1,17 +1,6 @@
-# Guidance Title (required)
-
-The Guidance title should be consistent with the title established first in Alchemy.
-
-**Example:** *Guidance for Product Substitutions on AWS*
-
-This title correlates exactly to the Guidance it’s linked to, including its corresponding sample code repository. 
-
+# Guidance for Generative AI Model Optimization using Amazon SageMaker
 
 ## Table of Content (required)
-
-List the top-level sections of the README template, along with a hyperlink to the specific section.
-
-### Required
 
 1. [Overview](#overview-required)
     - [Cost](#cost)
@@ -23,19 +12,24 @@ List the top-level sections of the README template, along with a hyperlink to th
 6. [Next Steps](#next-steps-required)
 7. [Cleanup](#cleanup-required)
 
-***Optional***
-
-8. [FAQ, known issues, additional considerations, and limitations](#faq-known-issues-additional-considerations-and-limitations-optional)
-9. [Revisions](#revisions-optional)
-10. [Notices](#notices-optional)
-11. [Authors](#authors-optional)
 
 ## Overview (required)
 
-1. Provide a brief overview explaining the what, why, or how of your Guidance. You can answer any one of the following to help you write this:
+The guidance on "Generative AI Model Optimization using Amazon SageMaker" addresses the growing need to optimize the performance and cost-effectiveness of large language models (LLMs) deployed on cloud platforms.
 
-    - **Why did you build this Guidance?**
-    - **What problem does this Guidance solve?**
+The key objectives of this guidance are:
+
+1. **Improving Inference Speed**: The guidance introduces techniques like speculative decoding and model quantization to significantly enhance the inference speed of LLMs, leading to faster response times for business applications.
+
+2. **Enhancing Accuracy and Cost-Effectiveness**: The guidance aims to help organizations strike the right balance between inference speed, model accuracy, and cost-efficiency when running these models in production.
+
+The main problem this guidance solves is the challenge of optimizing the performance and cost-efficiency of LLMs on Amazon SageMaker. Specifically, it addresses the following pain points:
+
+- **Slow Inference Speeds**: The guidance provides techniques to accelerate inference, as LLMs can be computationally intensive, leading to slow response times.
+- **Model Accuracy Trade-offs**: The guidance helps maintain a balance between speed and accuracy, as optimizing for speed can sometimes come at the cost of model accuracy.
+- **High Infrastructure Costs**: The guidance introduces methods to reduce the cost of infrastructure and cloud resources, as running large, complex LLMs can be expensive.
+
+By providing a comprehensive set of optimization techniques and a step-by-step approach, the guidance empowers developers and data scientists to effectively optimize their LLMs on Amazon SageMaker, leading to faster, more accurate, and cost-efficient AI-powered applications.
 
 2. Include the architecture diagram image, as well as the steps explaining the high-level overview and flow of the architecture. 
     - To add a screenshot, create an ‘assets/images’ folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README. 
