@@ -70,7 +70,7 @@ By providing a comprehensive set of optimization techniques and a step-by-step a
 ## Running the Guidance
 
 1. Each of the 4 notebooks provided  comes with its own code to test a successful deployment of the optimized model at the endpoint. So run the cells in Jupyter one by one and deploy the model at the endpoint.
-2. If the Generative AI Application Builder on AWS is deployed to have an application that communicates to this newly optimized endpoint, then follow the steps provided in this [solution](https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/)
+2. If the Generative AI Application Builder on AWS is deployed to have an application that communicates to this newly optimized endpoint, then follow the steps provided in this [solution](https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/). Here is a link to a video on how to connect to the endpoint for inference. [Video](https://www.youtube.com/watch?v=rJqUfyRZEc0&list=PLhr1KZpdzukcj8lsINDmuXPJq6aQEY4d2&index=20)
 
 
 
@@ -79,6 +79,7 @@ By providing a comprehensive set of optimization techniques and a step-by-step a
 You can run each optimization technique and observe the results. Use these two blogs to get an advanced understanding of these optimization techniques.
 
 [Blog1](https://aws.amazon.com/blogs/machine-learning/achieve-up-to-2x-higher-throughput-while-reducing-costs-by-50-for-generative-ai-inference-on-amazon-sagemaker-with-the-new-inference-optimization-toolkit-part-1/)
+
 [Blog2](https://aws.amazon.com/blogs/machine-learning/achieve-up-to-2x-higher-throughput-while-reducing-costs-by-up-to-50-for-generative-ai-inference-on-amazon-sagemaker-with-the-new-inference-optimization-toolkit-part-2/)
 
 
