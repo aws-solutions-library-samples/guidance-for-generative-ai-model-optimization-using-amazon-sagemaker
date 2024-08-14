@@ -46,6 +46,7 @@ By providing a comprehensive set of optimization techniques and a step-by-step a
 
 * Make sure that the `ml.p4d.24xlarge` and `ml.inf2.48xlarge` instance types required for this tutorial are available in your AWS Region.
 * Make sure that the value of your "ml.p4d.24xlarge for endpoint usage" and "ml.inf2.48xlarge for endpoint usage" Amazon SageMaker service quotas allow you to deploy at least one Amazon SageMaker endpoint using these instance types.
+* Amazon SageMaker Domain Creation: https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-onboard.html
 
 
 ## Deployment Steps 
