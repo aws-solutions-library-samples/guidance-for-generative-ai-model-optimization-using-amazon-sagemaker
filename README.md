@@ -34,12 +34,21 @@ By providing a comprehensive set of optimization techniques and a step-by-step a
 ![Architecture](./assets/arch-1.png)
 ![Architecture](./assets/arch-2.png)
 
-### Cost
+### Cost 
 
+You are responsible for the cost of the AWS services used while running this solution guidance. As of August 2024, the cost for running this guidance with the default settings $39.12 per hour for optimizing the model with 4 techniques and 4 endpoints. On top of this you have to take into account the costs incurred by the AWS resources used for testing it with the [generative AI application](). 
+We recommend creating a [budget](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-create.html) through [AWS Cost Explorer](http://aws.amazon.com/aws-cost-management/aws-cost-explorer/) to help manage costs. Prices are subject to change. For full details, refer to the pricing webpage for each AWS service used in this Guidance.
 
+### Estimated monthly cost breakdown
 
-### Sample Cost Table
+The following table provides a sample cost breakdown for deploying this guidance with 4 Amazon SageMaker Endpoints with 4 instances of and an inferentia instance in the US-East-1 `us-east-1` region for one month. The AWS cost calculator is available [here](https://calculator.aws/#/estimate?id=ddd8c7f83c4202829d1a28a231b0d6d7853290f6). Please that cost calculations are based on the default configuration options of the guidance deployment method described below.
 
+| **AWS service**          | Dimensions | Cost per **month** \[USD\] |
+|--------------------------|------------|------------|
+| Amazon SageMaker Studio Instance | 1 instance (ml.t3.2xlarge)| \$ 70.22 |
+| Amazon SageMaker real time inference Endpoints- 4               | 4 - ml.p4d.24xlarge | \$ 26,532.35 |
+| Amazon SageMaker Instance|1-  ml.inf2.48xlarge | \$ 2,742.08 |
+| **TOTAL estimate** |  | **\$ 29,344.65** |
 
 
 ## Prerequisites
@@ -50,7 +59,7 @@ By providing a comprehensive set of optimization techniques and a step-by-step a
 
 
 ## Deployment Steps 
-1. Download this repository
+1. Download/clone this repository
 2. Navigate to the deployment folder
 3. In the AWS Console, navigate to Cloudformation and upload the template in the deployment folder.
 4. Once deployment is complete, navigate to SageMaker. In the left pane, under select **Notebooks** under **Applications and IDEs**
