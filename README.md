@@ -1,215 +1,95 @@
-# Guidance Title (required)
+# Guidance for Generative AI Model Optimization using Amazon SageMaker
 
-The Guidance title should be consistent with the title established first in Alchemy.
+## Table of Content 
 
-**Example:** *Guidance for Product Substitutions on AWS*
-
-This title correlates exactly to the Guidance it’s linked to, including its corresponding sample code repository. 
-
-
-## Table of Content (required)
-
-List the top-level sections of the README template, along with a hyperlink to the specific section.
-
-### Required
-
-1. [Overview](#overview-required)
+1. [Overview](#overview)
     - [Cost](#cost)
-2. [Prerequisites](#prerequisites-required)
-    - [Operating System](#operating-system-required)
-3. [Deployment Steps](#deployment-steps-required)
-4. [Deployment Validation](#deployment-validation-required)
-5. [Running the Guidance](#running-the-guidance-required)
-6. [Next Steps](#next-steps-required)
-7. [Cleanup](#cleanup-required)
+2. [Prerequisites](#prerequisites)
+    - [Operating System](#operating-system)
+3. [Deployment Steps](#deployment-steps)
+4. [Deployment Validation](#deployment-validation)
+5. [Running the Guidance](#running-the-guidance)
+6. [Next Steps](#next-steps)
+7. [Cleanup](#cleanup)
 
-***Optional***
 
-8. [FAQ, known issues, additional considerations, and limitations](#faq-known-issues-additional-considerations-and-limitations-optional)
-9. [Revisions](#revisions-optional)
-10. [Notices](#notices-optional)
-11. [Authors](#authors-optional)
+## Overview
 
-## Overview (required)
+The guidance on "Generative AI Model Optimization using Amazon SageMaker" addresses the growing need to optimize the performance and cost-effectiveness of large language models (LLMs) deployed on cloud platforms.
 
-1. Provide a brief overview explaining the what, why, or how of your Guidance. You can answer any one of the following to help you write this:
+The key objectives of this guidance are:
 
-    - **Why did you build this Guidance?**
-    - **What problem does this Guidance solve?**
+1. **Improving Inference Speed**: The guidance introduces techniques like speculative decoding and model quantization to significantly enhance the inference speed of LLMs, leading to faster response times for business applications.
 
-2. Include the architecture diagram image, as well as the steps explaining the high-level overview and flow of the architecture. 
-    - To add a screenshot, create an ‘assets/images’ folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README. 
+2. **Enhancing Accuracy and Cost-Effectiveness**: The guidance aims to help organizations strike the right balance between inference speed, model accuracy, and cost-efficiency when running these models in production.
 
-### Cost ( required )
+The main problem this guidance solves is the challenge of optimizing the performance and cost-efficiency of LLMs on Amazon SageMaker. Specifically, it addresses the following pain points:
 
-This section is for a high-level cost estimate. Think of a likely straightforward scenario with reasonable assumptions based on the problem the Guidance is trying to solve. Provide an in-depth cost breakdown table in this section below ( you should use AWS Pricing Calculator to generate cost breakdown ).
+- **Slow Inference Speeds**: The guidance provides techniques to accelerate inference, as LLMs can be computationally intensive, leading to slow response times.
+- **Model Accuracy Trade-offs**: The guidance helps maintain a balance between speed and accuracy, as optimizing for speed can sometimes come at the cost of model accuracy.
+- **High Infrastructure Costs**: The guidance introduces methods to reduce the cost of infrastructure and cloud resources, as running large, complex LLMs can be expensive.
 
-Start this section with the following boilerplate text:
+By providing a comprehensive set of optimization techniques and a step-by-step approach, the guidance empowers developers and data scientists to effectively optimize their LLMs on Amazon SageMaker, leading to faster, more accurate, and cost-efficient AI-powered applications.
 
-_You are responsible for the cost of the AWS services used while running this Guidance. As of <month> <year>, the cost for running this Guidance with the default settings in the <Default AWS Region (Most likely will be US East (N. Virginia)) > is approximately $<n.nn> per month for processing ( <nnnnn> records )._
+![Architecture](./assets/arch-1.png)
+![Architecture](./assets/arch-2.png)
 
-Replace this amount with the approximate cost for running your Guidance in the default Region. This estimate should be per month and for processing/serving resonable number of requests/entities.
+### Cost
 
-Suggest you keep this boilerplate text:
-_We recommend creating a [Budget](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) through [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/) to help manage costs. Prices are subject to change. For full details, refer to the pricing webpage for each AWS service used in this Guidance._
 
-### Sample Cost Table ( required )
 
-**Note : Once you have created a sample cost table using AWS Pricing Calculator, copy the cost breakdown to below table and upload a PDF of the cost estimation on BuilderSpace. Do not add the link to the pricing calculator in the ReadMe.**
+### Sample Cost Table
 
-The following table provides a sample cost breakdown for deploying this Guidance with the default parameters in the US East (N. Virginia) Region for one month.
 
-| AWS service  | Dimensions | Cost [USD] |
-| ----------- | ------------ | ------------ |
-| Amazon API Gateway | 1,000,000 REST API calls per month  | $ 3.50month |
-| Amazon Cognito | 1,000 active users per month without advanced security feature | $ 0.00 |
 
-## Prerequisites (required)
+## Prerequisites
 
-### Operating System (required)
+* Make sure that the `ml.p4d.24xlarge` and `ml.inf2.48xlarge` instance types required for this tutorial are available in your AWS Region.
+* Make sure that the value of your "ml.p4d.24xlarge for endpoint usage" and "ml.inf2.48xlarge for endpoint usage" Amazon SageMaker service quotas allow you to deploy at least one Amazon SageMaker endpoint using these instance types.
+* Amazon SageMaker Domain Creation: https://docs.aws.amazon.com/sagemaker/latest/dg/gs-studio-onboard.html
 
-- Talk about the base Operating System (OS) and environment that can be used to run or deploy this Guidance, such as *Mac, Linux, or Windows*. Include all installable packages or modules required for the deployment. 
-- By default, assume Amazon Linux 2/Amazon Linux 2023 AMI as the base environment. All packages that are not available by default in AMI must be listed out.  Include the specific version number of the package or module.
 
-**Example:**
-“These deployment instructions are optimized to best work on **<Amazon Linux 2 AMI>**.  Deployment in another OS may require additional steps.”
+## Deployment Steps 
+1. Download this repository
+2. Navigate to the deployment folder
+3. In the AWS Console, navigate to Cloudformation and upload the template in the deployment folder.
+4. Once deployment is complete, navigate to SageMaker. In the left pane, under select **Notebooks** under **Applications and IDEs**
+5. Select the newly create notebook and select **Open Jupyter**
+6. Navigate to the 4 notebooks. Each notebook walks you through the steps to optimize the model and then deploy it.
+7. If you would like to test this newly optimized endpoint with an application as shown in the second architecture diagram above, then use the 
+   [Generative AI Application Builder SageMaker Chat](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?templateURL=https://solutions-reference.s3.amazonaws.com/generative-ai-application-builder-on-aws/latest/SageMakerChat.template)
+8. If multiple application are needed to perform queries against each endpoint, then use the solution. [Generative AI Application Builder on AWS](https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/)
 
-- Include install commands for packages, if applicable.
 
+## Deployment Validation
 
-### Third-party tools (If applicable)
+* Open CloudFormation console and verify the status to be **CREATE_COMPLETE**
+* If deployment is successful, you should see the notebook in the SageMaker console.
+* If deploying the SageMaker Chat template from generative ai application builder on AWS solution, check for the status of the deploymnet to be **CREATE_COMPLETE** then navigate to the outputs tab in cloudformation and select the UI url and login with the credentials provided through Cognito sent to your email.
 
-*List any installable third-party tools required for deployment.*
 
+## Running the Guidance
 
-### AWS account requirements (If applicable)
+1. Each of the 4 notebooks provided  comes with its own code to test a successful deployment of the optimized model at the endpoint. So run the cells in Jupyter one by one and deploy the model at the endpoint.
+2. If the Generative AI Application Builder on AWS is deployed to have an application that communicates to this newly optimized endpoint, then follow the steps provided in this [solution](https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/). Here is a link to a video on how to connect to the endpoint for inference. [Video](https://www.youtube.com/watch?v=rJqUfyRZEc0&list=PLhr1KZpdzukcj8lsINDmuXPJq6aQEY4d2&index=20)
 
-*List out pre-requisites required on the AWS account if applicable, this includes enabling AWS regions, requiring ACM certificate.*
 
-**Example:** “This deployment requires you have public ACM certificate available in your AWS account”
 
-**Example resources:**
-- ACM certificate 
-- DNS record
-- S3 bucket
-- VPC
-- IAM role with specific permissions
-- Enabling a Region or service etc.
+## Next Steps
 
+You can run each optimization technique and observe the results. Use these two blogs to get an advanced understanding of these optimization techniques.
 
-### aws cdk bootstrap (if sample code has aws-cdk)
+[Blog1](https://aws.amazon.com/blogs/machine-learning/achieve-up-to-2x-higher-throughput-while-reducing-costs-by-50-for-generative-ai-inference-on-amazon-sagemaker-with-the-new-inference-optimization-toolkit-part-1/)
 
-<If using aws-cdk, include steps for account bootstrap for new cdk users.>
+[Blog2](https://aws.amazon.com/blogs/machine-learning/achieve-up-to-2x-higher-throughput-while-reducing-costs-by-up-to-50-for-generative-ai-inference-on-amazon-sagemaker-with-the-new-inference-optimization-toolkit-part-2/)
 
-**Example blurb:** “This Guidance uses aws-cdk. If you are using aws-cdk for first time, please perform the below bootstrapping....”
 
-### Service limits  (if applicable)
+## Cleanup
 
-<Talk about any critical service limits that affect the regular functioning of the Guidance. If the Guidance requires service limit increase, include the service name, limit name and link to the service quotas page.>
+ Once tested you can delete the endpoints.
 
-### Supported Regions (if applicable)
+## Notices
 
-<If the Guidance is built for specific AWS Regions, or if the services used in the Guidance do not support all Regions, please specify the Region this Guidance is best suited for>
-
-
-## Deployment Steps (required)
-
-Deployment steps must be numbered, comprehensive, and usable to customers at any level of AWS expertise. The steps must include the precise commands to run, and describe the action it performs.
-
-* All steps must be numbered.
-* If the step requires manual actions from the AWS console, include a screenshot if possible.
-* The steps must start with the following command to clone the repo. ```git clone xxxxxxx```
-* If applicable, provide instructions to create the Python virtual environment, and installing the packages using ```requirement.txt```.
-* If applicable, provide instructions to capture the deployed resource ARN or ID using the CLI command (recommended), or console action.
-
- 
-**Example:**
-
-1. Clone the repo using command ```git clone xxxxxxxxxx```
-2. cd to the repo folder ```cd <repo-name>```
-3. Install packages in requirements using command ```pip install requirement.txt```
-4. Edit content of **file-name** and replace **s3-bucket** with the bucket name in your account.
-5. Run this command to deploy the stack ```cdk deploy``` 
-6. Capture the domain name created by running this CLI command ```aws apigateway ............```
-
-
-
-## Deployment Validation  (required)
-
-<Provide steps to validate a successful deployment, such as terminal output, verifying that the resource is created, status of the CloudFormation template, etc.>
-
-
-**Examples:**
-
-* Open CloudFormation console and verify the status of the template with the name starting with xxxxxx.
-* If deployment is successful, you should see an active database instance with the name starting with <xxxxx> in        the RDS console.
-*  Run the following CLI command to validate the deployment: ```aws cloudformation describe xxxxxxxxxxxxx```
-
-
-
-## Running the Guidance (required)
-
-<Provide instructions to run the Guidance with the sample data or input provided, and interpret the output received.> 
-
-This section should include:
-
-* Guidance inputs
-* Commands to run
-* Expected output (provide screenshot if possible)
-* Output description
-
-
-
-## Next Steps (required)
-
-Provide suggestions and recommendations about how customers can modify the parameters and the components of the Guidance to further enhance it according to their requirements.
-
-
-## Cleanup (required)
-
-- Include detailed instructions, commands, and console actions to delete the deployed Guidance.
-- If the Guidance requires manual deletion of resources, such as the content of an S3 bucket, please specify.
-
-
-
-## FAQ, known issues, additional considerations, and limitations (optional)
-
-
-**Known issues (optional)**
-
-<If there are common known issues, or errors that can occur during the Guidance deployment, describe the issue and resolution steps here>
-
-
-**Additional considerations (if applicable)**
-
-<Include considerations the customer must know while using the Guidance, such as anti-patterns, or billing considerations.>
-
-**Examples:**
-
-- “This Guidance creates a public AWS bucket required for the use-case.”
-- “This Guidance created an Amazon SageMaker notebook that is billed per hour irrespective of usage.”
-- “This Guidance creates unauthenticated public API endpoints.”
-
-
-Provide a link to the *GitHub issues page* for users to provide feedback.
-
-
-**Example:** *“For any feedback, questions, or suggestions, please use the issues tab under this repo.”*
-
-## Revisions (optional)
-
-Document all notable changes to this project.
-
-Consider formatting this section based on Keep a Changelog, and adhering to Semantic Versioning.
-
-## Notices (optional)
-
-Include a legal disclaimer
-
-**Example:**
 *Customers are responsible for making their own independent assessment of the information in this Guidance. This Guidance: (a) is for informational purposes only, (b) represents AWS current product offerings and practices, which are subject to change without notice, and (c) does not create any commitments or assurances from AWS and its affiliates, suppliers or licensors. AWS products or services are provided “as is” without warranties, representations, or conditions of any kind, whether express or implied. AWS responsibilities and liabilities to its customers are controlled by AWS agreements, and this Guidance is not part of, nor does it modify, any agreement between AWS and its customers.*
 
 
-## Authors (optional)
-
-Name of code contributors
