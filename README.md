@@ -36,19 +36,19 @@ By providing a comprehensive set of optimization techniques and a step-by-step a
 
 ### Cost 
 
-You are responsible for the cost of the AWS services used while running this solution guidance. As of August 2024, the cost for running this guidance with the default settings $39.12 per hour for optimizing the model with 4 techniques and 4 endpoints. On top of this you have to take into account the costs incurred by the AWS resources used for testing it with the [generative AI application](). 
+You are responsible for the cost of the AWS services used while running this solution guidance. As of August 2024, the cost for running this guidance with the default settings is $39.12 per hour for optimizing the model with 4 techniques and 4 endpoints. On top of this you have to take into account the costs incurred by the AWS resources used for testing it with the [generative AI application](https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/). 
 We recommend creating a [budget](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-create.html) through [AWS Cost Explorer](http://aws.amazon.com/aws-cost-management/aws-cost-explorer/) to help manage costs. Prices are subject to change. For full details, refer to the pricing webpage for each AWS service used in this Guidance.
 
 ### Estimated monthly cost breakdown
 
-The following table provides a sample cost breakdown for deploying this guidance with 4 Amazon SageMaker Endpoints with 4 instances of and an inferentia instance in the US-East-1 `us-east-1` region for one month. The AWS cost calculator is available [here](https://calculator.aws/#/estimate?id=ddd8c7f83c4202829d1a28a231b0d6d7853290f6). Please that cost calculations are based on the default configuration options of the guidance deployment method described below.
+The following table provides a sample cost breakdown for deploying this guidance with 4 Amazon SageMaker Endpoints with 4 instances and an inferentia instance in the `us-east-1` region for one month. The AWS cost calculator is available [here](https://calculator.aws/#/estimate?id=ddd8c7f83c4202829d1a28a231b0d6d7853290f6). Please note that these cost calculations are based on the default configuration options of the guidance deployment method described below.
 
 | **AWS service**          | Dimensions | Cost per **month** \[USD\] |
 |--------------------------|------------|------------|
-| Amazon SageMaker Studio Instance | 1 instance (ml.t3.2xlarge)| \$ 70.22 |
+| Amazon SageMaker Studio Instance | 1 - ml.t3.2xlarge| \$ 70.22 |
 | Amazon SageMaker real time inference Endpoints- 4               | 4 - ml.p4d.24xlarge | \$ 26,532.35 |
-| Amazon SageMaker Instance|1-  ml.inf2.48xlarge | \$ 2,742.08 |
-| **TOTAL estimate** |  | **\$ 29,344.65** |
+| Amazon SageMaker Instance|1 - ml.inf2.48xlarge | \$ 2,742.08 |
+| **Total estimate** |  | **\$ 29,344.65** |
 
 
 ## Prerequisites
