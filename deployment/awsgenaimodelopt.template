@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Template to provision SageMaker Notebook and upload the code repository.",
+  "Description": "SO9526 Template to provision SageMaker Notebook and upload the code repository.",
   "Parameters": {
     "SageMakerNotebookName": {
       "Default": "aws-llm-apps-blog",
