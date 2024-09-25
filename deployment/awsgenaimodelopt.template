@@ -22,7 +22,7 @@
       "Type": "AWS::SageMaker::CodeRepository",
       "Properties": {
         "GitConfig": {
-          "RepositoryUrl": "https://https://github.com/aws-solutions-library-samples/guidance-for-generative-ai-model-optimization-using-amazon-sagemaker"
+          "RepositoryUrl": "https://github.com/aws-solutions-library-samples/guidance-for-generative-ai-model-optimization-using-amazon-sagemaker"
         }
       }
     },
@@ -39,7 +39,7 @@
             "Arn"
           ]
         },
-        "DefaultCodeRepository": "https://https://github.com/aws-solutions-library-samples/guidance-for-generative-ai-model-optimization-using-amazon-sagemaker"
+        "DefaultCodeRepository": "https://github.com/aws-solutions-library-samples/guidance-for-generative-ai-model-optimization-using-amazon-sagemaker"
       }
     },
     "Role": {
