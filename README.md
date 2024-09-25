@@ -64,7 +64,7 @@ The following table provides a sample cost breakdown for deploying this guidance
 3. In the AWS Console, navigate to Cloudformation and upload the template in the deployment folder.
 4. Once deployment is complete, navigate to SageMaker. In the left pane, under select **Notebooks** under **Applications and IDEs**
 5. Select the newly create notebook and select **Open Jupyter**
-6. Navigate to the 4 notebooks. Each notebook walks you through the steps to optimize the model and then deploy it.
+6. Navigate to the 4 notebooks under the source folder of the repository. Each notebook walks you through the steps to optimize the model and then deploy it.
 7. If you would like to test this newly optimized endpoint with an application as shown in the second architecture diagram above, then use the 
    [Generative AI Application Builder SageMaker Chat](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?templateURL=https://solutions-reference.s3.amazonaws.com/generative-ai-application-builder-on-aws/latest/SageMakerChat.template)
 8. If multiple application are needed to perform queries against each endpoint, then use the solution. [Generative AI Application Builder on AWS](https://aws.amazon.com/solutions/implementations/generative-ai-application-builder-on-aws/)
